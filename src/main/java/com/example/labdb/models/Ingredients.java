@@ -16,11 +16,13 @@ public class Ingredients {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_INGREDIENTS")
+    @Column(name = "id_ingredients")
     private Long id;
 
+    @Column(name = "name_ingredients")
     private String nameIngredients;
 
-    @OneToMany(mappedBy = "ingredients")
+
+        @OneToMany(mappedBy = "ingredients")
     private List<CompositionDish> compositionDishList;
 }

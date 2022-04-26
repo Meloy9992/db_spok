@@ -4,6 +4,8 @@ import com.example.labdb.dao.StaffDao;
 import com.example.labdb.dao.UserDao;
 import com.example.labdb.models.User;
 import com.example.labdb.models.Staff;
+import com.example.labdb.service.StaffService;
+import com.example.labdb.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,11 +15,11 @@ import java.util.Date;
 
 @Controller
 public class MainController {
-    private StaffDao staff;
-    private UserDao user;
+    private StaffService staff;
+    private UserService user;
 
     @Autowired
-    public MainController(StaffDao staff, UserDao user) {
+    public MainController(StaffService staff, UserService user) {
         this.staff = staff;
         this.user = user;
     }
