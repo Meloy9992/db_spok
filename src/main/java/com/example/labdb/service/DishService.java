@@ -1,10 +1,10 @@
-package com.example.labdb.dao;
+package com.example.labdb.service;
 
 import com.example.labdb.models.Dish;
 
 import java.util.List;
 
-public interface DishDao {
+public interface DishService {
 
     Dish addNewDish(Dish dish);
 

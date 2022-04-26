@@ -35,6 +35,7 @@ public class DishDaoImpl implements DishDao {
 
     }
 
+    @Override
     public List<Dish> getAllDish(){
         Session session = getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(Dish.class);
