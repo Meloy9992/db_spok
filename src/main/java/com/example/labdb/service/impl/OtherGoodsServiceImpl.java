@@ -7,9 +7,10 @@ import com.example.labdb.service.OtherGoodsService;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import static com.example.labdb.utils.HibernateUtil.getSessionFactory;
-@Repository
+@Service
 public class OtherGoodsServiceImpl implements OtherGoodsService {
 
     private OtherGoodsDao otherGoodsDao;

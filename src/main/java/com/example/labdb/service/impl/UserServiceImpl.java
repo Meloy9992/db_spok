@@ -6,11 +6,12 @@ import com.example.labdb.service.UserService;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 import static com.example.labdb.utils.HibernateUtil.getSessionFactory;
-@Repository
+@Service
 public class UserServiceImpl implements UserService {
 
     private UserDao userDao;
