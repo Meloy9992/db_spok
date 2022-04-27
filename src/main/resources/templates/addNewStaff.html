@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form class="needs-validation" novalidate="" action="/staff/add/new" method="post">
+            <div class="col-12">
+                <label for="user" class="form-label">Создание нового работника</label>
+                <form>
+                    <p>Выберите дату рождения: <input type="date" name="birthday">
+                </form>
+                <input name="fullName" required="" id="fullName" type="text" placeholder="Введите ваше ФИО">
+                <input name="email" required="" id="email" type="text" placeholder="Введите ваш email">
+                <input name="phone" required="" id="phone" type="number" placeholder="Введите ваш телефон">
+                <input name="position" required="" id="position" type="text" placeholder="Введите должность">
+                <button class="w-100 btn btn-success btn-lg" type="submit">Добавить</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

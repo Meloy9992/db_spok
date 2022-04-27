@@ -19,19 +19,24 @@ public class Dish {
     @Column(name = "ID_DISH")
     private Long id;
 
+    @Column(name = "count_dish")
     private Integer countDish;
 
+    @Column(name = "name_dish")
     private String nameDish;
 
+    @Column(name = "price_dish")
     private Long priceDish;
 
     @OneToMany(mappedBy = "dish")
     private List<CompositionDish> compositionDishList;
 
     @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_manufacturer")
     private Manufacturer manufacturer;
 
     @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_group")
     private Kind kindDish;
 
 }

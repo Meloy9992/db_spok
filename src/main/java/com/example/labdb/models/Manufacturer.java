@@ -16,8 +16,10 @@ public class Manufacturer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_manufacturer")
     private Long id;
 
+    @Column(name = "name_manufacturer")
     private String nameManufacturer;
 
     @OneToMany(mappedBy = "manufacturerGoods")

@@ -11,4 +11,6 @@ public interface UserService {
     void deleteUser(User user);
 
     User getUserById(Long id);
+
+    User getUserByPhone(Long phone);
 }

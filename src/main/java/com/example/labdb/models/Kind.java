@@ -16,8 +16,10 @@ public class Kind {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_group")
     private Long id;
 
+    @Column(name = "name_group")
     private String nameGroup;
 
     @OneToMany(mappedBy = "kindDish")
