@@ -27,7 +27,11 @@ public class DishDaoImpl implements DishDao {
 
     @Override
     public void updateDish(Dish dish){
-
+        Session session = getSessionFactory().openSession();
+        session.beginTransaction();
+        session.saveOrUpdate(dish);
+        session.getTransaction().commit();
+        session.close();
     }
 
     @Override
@@ -38,8 +42,14 @@ public class DishDaoImpl implements DishDao {
     @Override
     public List<Dish> getAllDish(){
         Session session = getSessionFactory().openSession();
-        Criteria criteria = session.createCriteria(Dish.class);
-        List<Dish> dishList = criteria.add(Restrictions.like("ingredients", "Помидоры")).list();
-        return dishList;
+        return session.createQuery("SELECT d FROM Dish d", Dish.class).getResultList();
+    }
+
+    @Override
+    public Dish findById(Long id){
+        Session session = getSessionFactory().openSession();
+        Dish dish = (Dish) session.createQuery("from Dish where id = " + id).list().get(0);
+        session.close();
+        return dish;
     }
 }

@@ -13,4 +13,6 @@ public interface DishService {
     void deleteDish(Dish dish);
 
     List<Dish> getAllDish();
+
+    Dish findById(Long id);
 }

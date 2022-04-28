@@ -28,9 +28,6 @@ public class Dish {
     @Column(name = "price_dish")
     private Long priceDish;
 
-    @OneToMany(mappedBy = "dish")
-    private List<CompositionDish> compositionDishList;
-
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_manufacturer")
     private Manufacturer manufacturer;
