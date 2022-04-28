@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 @RequestMapping(value = "/staff")
@@ -43,8 +44,13 @@ public class StaffController {
     public String addNewStaff(@RequestParam String birthday, @RequestParam String fullName,
                               @RequestParam String email, @RequestParam(name = "phone") String phoneNumber,
                               @RequestParam(name = "position") String position, Model model) throws ParseException {
-        SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = parser.parse(birthday);
+        Date date;
+        if (birthday.hashCode() != 0){
+            SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd");
+            date = parser.parse(birthday);}
+        else {
+            date = null;
+        }
         User user = new User(date, email, fullName, Long.parseLong(phoneNumber));
         Staff staff = new Staff(fullName, position, user);
         userService.addNewUser(user);
@@ -64,5 +70,12 @@ public class StaffController {
         Staff staff = new Staff(user.getFullName(), position, user);
         staffService.addNewStaff(staff);
         return "addExistingStaff";
+    }
+
+    @GetMapping("/list")
+    public String editStaff(Model model){
+        List<Staff> staffs = staffService.getAllStaff();
+        model.addAttribute("staffs", staffs);
+        return "staffList";
     }
 }

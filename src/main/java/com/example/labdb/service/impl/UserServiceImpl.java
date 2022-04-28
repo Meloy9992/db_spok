@@ -3,14 +3,11 @@ package com.example.labdb.service.impl;
 import com.example.labdb.dao.UserDao;
 import com.example.labdb.models.User;
 import com.example.labdb.service.UserService;
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static com.example.labdb.utils.HibernateUtil.getSessionFactory;
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -37,10 +34,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserById(Long id) {
-        return userDao.getUserById(id);
+    public User findUserById(Long id) {
+        return userDao.findUserById(id);
     }
 
     @Override
     public User getUserByPhone(Long phone){return userDao.getUserByPhone(phone);}
+
+    @Override
+    public List<User> getAllUser() {
+        return userDao.getAllUser();
+    }
 }

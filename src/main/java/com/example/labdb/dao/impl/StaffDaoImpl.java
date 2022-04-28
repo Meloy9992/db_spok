@@ -3,6 +3,7 @@ package com.example.labdb.dao.impl;
 
 import com.example.labdb.dao.StaffDao;
 import com.example.labdb.models.Staff;
+import com.example.labdb.models.User;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
@@ -18,7 +19,7 @@ public class StaffDaoImpl implements StaffDao {
     public Staff addNewStaff(Staff staff){
         Session session = getSessionFactory().openSession();
         session.beginTransaction();
-        session.save(staff);
+        session.saveOrUpdate(staff);
         session.getTransaction().commit();
         session.close();
         return staff;
@@ -48,5 +49,11 @@ public class StaffDaoImpl implements StaffDao {
         Staff staff = (Staff) session.createQuery("from Staff where id = " + id).list().get(0);
         session.close();
         return staff;
+    }
+
+    @Override
+    public List<Staff> getAllStaff() {
+        Session session = getSessionFactory().openSession();
+        return session.createQuery("SELECT s FROM Staff s", Staff.class).getResultList();
     }
 }

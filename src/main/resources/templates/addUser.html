@@ -1,3 +1,4 @@
+<!doctype html>
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -5,14 +6,18 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
 </head>
-<body>
 <header th:insert="blocks/header :: header"></header>
+<body>
 <div>
-    <form class="needs-validation" novalidate="" action="/staff/add/existing" method="post">
+    <form class="needs-validation" novalidate="" action="/user/add" method="post">
         <div class="col-12">
-            <label for="user" class="form-label">Создание нового работника</label>
+            <label class="form-label">Создание нового пользователя</label>
+            <form>
+                <p>Выберите дату рождения: <input type="date" name="birthday">
+            </form>
+            <input name="fullName" required="" id="fullName" type="text" placeholder="Введите ваше ФИО">
+            <input name="email" required="" id="email" type="email" placeholder="Введите ваш email">
             <input name="phone" required="" id="phone" type="number" placeholder="Введите ваш телефон">
-            <input name="position" required="" id="position" type="text" placeholder="Введите должность">
             <button class="w-100 btn btn-success btn-lg" type="submit">Добавить</button>
         </div>
     </form>

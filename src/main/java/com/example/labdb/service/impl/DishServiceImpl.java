@@ -47,4 +47,9 @@ public class DishServiceImpl implements DishService {
     public Dish findById(Long id) {
         return dishDao.findById(id);
     }
+
+    @Override
+    public List<Dish> getListCategory(String category) {
+        return dishDao.getListCategory(category);
+    }
 }

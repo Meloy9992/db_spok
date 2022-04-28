@@ -2,6 +2,8 @@ package com.example.labdb.dao;
 
 import com.example.labdb.models.User;
 
+import java.util.List;
+
 public interface UserDao {
 
     User addNewUser(User user);
@@ -10,7 +12,9 @@ public interface UserDao {
 
     void deleteUser(User user);
 
-    User getUserById(Long id);
+    User findUserById(Long id);
 
     User getUserByPhone(Long phone);
+
+    List<User> getAllUser();
 }

@@ -3,12 +3,14 @@ package com.example.labdb.dao.impl;
 import com.example.labdb.dao.DishDao;
 import com.example.labdb.models.Dish;
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.CriteriaQuery;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.labdb.utils.HibernateUtil.getSessionFactory;
@@ -51,5 +53,23 @@ public class DishDaoImpl implements DishDao {
         Dish dish = (Dish) session.createQuery("from Dish where id = " + id).list().get(0);
         session.close();
         return dish;
+    }
+
+    @Override
+    public List<Dish> getListCategory(String category){
+        Session session = getSessionFactory().openSession();
+        Query query =  session.createQuery("from Dish d inner join Kind  k on" +
+                " d.kindDish.id=k.id where k.nameGroup = :category");
+        query.setParameter("category", category);
+        List<Object[]> results = query.getResultList();
+        List<Dish> dishes = new ArrayList<>();
+
+        for (int i=0; i <results.size(); i++){
+            Object[] objects = results.get(i);
+            Dish dish = (Dish) objects[0];
+            dishes.add(dish);
+        }
+
+        return dishes;
     }
 }

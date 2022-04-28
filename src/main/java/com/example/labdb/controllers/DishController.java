@@ -1,6 +1,7 @@
 package com.example.labdb.controllers;
 
 import com.example.labdb.models.Dish;
+import com.example.labdb.models.Kind;
 import com.example.labdb.service.DishService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,5 +39,12 @@ public class DishController {
     public String editDish(Dish dish){
         dishService.updateDish(dish);
         return "redirect:/dish/list";
+    }
+
+    @GetMapping("/deserts")
+    public String searchDeserts(Model model){
+        List<Dish> dishes = dishService.getListCategory("Десерты");
+        model.addAttribute("deserts", dishes );
+        return "desertList";
     }
 }

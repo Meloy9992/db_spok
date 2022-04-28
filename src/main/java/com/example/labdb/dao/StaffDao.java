@@ -2,6 +2,9 @@ package com.example.labdb.dao;
 
 
 import com.example.labdb.models.Staff;
+import com.example.labdb.models.User;
+
+import java.util.List;
 
 public interface StaffDao {
 
@@ -12,4 +15,6 @@ public interface StaffDao {
     void deleteStaff(Staff staff);
 
     Staff getStaffById(Long id);
+
+    List<Staff> getAllStaff();
 }

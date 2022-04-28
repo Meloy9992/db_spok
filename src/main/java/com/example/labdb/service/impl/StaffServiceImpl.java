@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 import static com.example.labdb.utils.HibernateUtil.getSessionFactory;
 @Service
 public class StaffServiceImpl implements StaffService {
@@ -38,5 +40,10 @@ public class StaffServiceImpl implements StaffService {
     @Override
     public Staff getStaffById(Long id){
         return staffDao.getStaffById(id);
+    }
+
+    @Override
+    public List<Staff> getAllStaff() {
+        return staffDao.getAllStaff();
     }
 }
