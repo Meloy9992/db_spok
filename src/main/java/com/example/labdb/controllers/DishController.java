@@ -41,10 +41,15 @@ public class DishController {
         return "redirect:/dish/list";
     }
 
-    @GetMapping("/deserts")
-    public String searchDeserts(Model model){
-        List<Dish> dishes = dishService.getListCategory("Десерты");
-        model.addAttribute("deserts", dishes );
+    @GetMapping("/kind")
+    public String searchKind(Model model){
+        return "desertList";
+    }
+
+    @PostMapping("/kind")
+    public String searchingKind(@RequestParam("kind") String kind, Model model){
+        List<Dish> dishes = dishService.getListCategory(kind);
+        model.addAttribute("deserts", dishes);
         return "desertList";
     }
 }

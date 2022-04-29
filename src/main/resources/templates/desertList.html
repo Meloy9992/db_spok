@@ -8,7 +8,9 @@
 <body>
 <header th:insert="blocks/header :: header"></header>
 <div>
-    <form action="/dish/list" method="post">
+    <form action="/dish/kind" method="post">
+        <label for="kind" class="form-label">Введите группу</label>
+        <input name="kind" required="" id="kind" type="text" placeholder="Например: Десерт">
         <caption>Перечень блюд</caption>
         <table>
             <thead>
