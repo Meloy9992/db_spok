@@ -6,6 +6,8 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.CriteriaQuery;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Property;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
@@ -69,7 +71,19 @@ public class DishDaoImpl implements DishDao {
             Dish dish = (Dish) objects[0];
             dishes.add(dish);
         }
-
+        session.close();
         return dishes;
+    }
+
+    @Override
+    public Dish getExpensiveDish(){
+        Session session = getSessionFactory().openSession();
+        DetachedCriteria price = DetachedCriteria.forClass(Dish.class, "d")
+                .setProjection( Property.forName("d.priceDish").max());
+        Dish dish = (Dish) session.createCriteria(Dish.class, "d")
+                .add( Property.forName("d.priceDish").eq(price))
+                .list().get(0);
+        session.close();
+        return dish;
     }
 }

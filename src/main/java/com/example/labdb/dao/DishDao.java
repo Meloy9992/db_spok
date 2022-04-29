@@ -15,5 +15,8 @@ public interface DishDao {
     List<Dish> getAllDish();
 
     Dish findById(Long id);
+
     List<Dish> getListCategory(String category);
+
+    Dish getExpensiveDish();
 }

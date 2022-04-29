@@ -52,4 +52,9 @@ public class DishServiceImpl implements DishService {
     public List<Dish> getListCategory(String category) {
         return dishDao.getListCategory(category);
     }
+
+    @Override
+    public Dish getExpensiveDish() {
+        return dishDao.getExpensiveDish();
+    }
 }

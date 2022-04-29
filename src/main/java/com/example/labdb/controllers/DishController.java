@@ -52,4 +52,11 @@ public class DishController {
         model.addAttribute("deserts", dishes);
         return "desertList";
     }
+
+    @GetMapping("/expensive")
+    public String getExpensiveDish(Model model){
+        Dish dish = dishService.getExpensiveDish();
+        model.addAttribute("dishes", dish);
+        return "expensiveDish";
+    }
 }

@@ -17,4 +17,6 @@ public interface DishService {
     Dish findById(Long id);
 
     List<Dish> getListCategory(String category);
+
+    Dish getExpensiveDish();
 }

@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div>
+    <form action="/dish/expensive" method="post">
+    <table>
+        <thead>
+        <tr>
+            <th>Название блюда</th>
+            <th>Количество блюд</th>
+            <th>Цена блюда</th>
+            <th>Группа товара</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="${dishes.nameDish}"></td>
+            <td th:text="${dishes.getCountDish()}"></td>
+            <td th:text="${dishes.priceDish}"></td>
+            <td th:text="${dishes.kindDish.nameGroup}"></td>
+            </td>
+        </tr>
+        </tbody>
+</div>
+</body>
+</html>
