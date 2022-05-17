@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 import static com.example.labdb.utils.HibernateUtil.getSessionFactory;
 @Service
 public class ManufacturerServiceImpl implements ManufacturerService {
@@ -33,5 +35,15 @@ public class ManufacturerServiceImpl implements ManufacturerService {
     @Override
     public void deleteManufacturer(Manufacturer manufacturer){
         manufacturerDao.deleteManufacturer(manufacturer);
+    }
+
+    @Override
+    public Manufacturer getFromId(int id) {
+        return manufacturerDao.getFromId(id);
+    }
+
+    @Override
+    public List<Manufacturer> getAllManufacturer() {
+        return manufacturerDao.getAllManufacturer();
     }
 }

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div>
+    <form class="needs-validation" novalidate="" action="/dish/add" method="post">
+        <div class="col-12">
+            <label class="form-label">Создание нового блюда</label>
+            <input name="countDish" required="" id="countDish" type="number" placeholder="Введите количество блюд">
+            <input name="nameDish" required="" id="nameDish" type="text" placeholder="Введите название блюда">
+            <input name="priceDish" required="" id="priceDish" type="text" placeholder="Введите цену блюда">
+            <select th:id="kind" class="form-control" th:name="kind">
+                <option th:each="kinds : ${kind}" th:value="${kinds.id}" th:text="${kinds.nameGroup}"></option>
+            </select>
+            <select th:id="manufacturer" class="form-control" th:name="manufacturer">
+                <option th:each="manufacturers : ${manufacturer}" th:value="${manufacturers.id}" th:text="${manufacturers.nameManufacturer}"></option>
+            </select>
+        </div>
+        <button class="w-100 btn btn-success btn-lg" type="submit">Добавить</button>
+    </form>
+</div>
+</body>
+</html>

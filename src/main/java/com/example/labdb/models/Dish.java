@@ -36,4 +36,11 @@ public class Dish {
     @JoinColumn(name = "id_group")
     private Kind kindDish;
 
+    public Dish(Integer countDish, String nameDish, Long priceDish, Manufacturer manufacturer, Kind kindDish) {
+        this.countDish = countDish;
+        this.nameDish = nameDish;
+        this.priceDish = priceDish;
+        this.manufacturer = manufacturer;
+        this.kindDish = kindDish;
+    }
 }
