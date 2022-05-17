@@ -1,8 +1,6 @@
 package com.example.labdb.controllers;
 
-import com.example.labdb.models.Dish;
-import com.example.labdb.models.Kind;
-import com.example.labdb.models.Manufacturer;
+import com.example.labdb.models.*;
 import com.example.labdb.service.DishService;
 import com.example.labdb.service.KindService;
 import com.example.labdb.service.ManufacturerService;
@@ -82,5 +80,12 @@ public class DishController {
         Dish dish = new Dish(countDish, nameDish, priceDish, manufacturer, kind);
         dishService.addNewDish(dish);
         return "addDish";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteDishes(@PathVariable("id") long id, Model model){
+        Dish dish = dishService.findById(id);
+        dishService.deleteDish(dish);
+        return "redirect:/dish/list";
     }
 }

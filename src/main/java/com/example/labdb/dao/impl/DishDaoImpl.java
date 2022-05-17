@@ -40,13 +40,19 @@ public class DishDaoImpl implements DishDao {
 
     @Override
     public void deleteDish(Dish dish){
-
+        Session session = getSessionFactory().openSession();
+        session.beginTransaction();
+        session.delete(dish);
+        session.getTransaction().commit();
+        session.close();
     }
 
     @Override
     public List<Dish> getAllDish(){
         Session session = getSessionFactory().openSession();
-        return session.createQuery("SELECT d FROM Dish d", Dish.class).getResultList();
+        List<Dish> list = session.createQuery("SELECT d FROM Dish d", Dish.class).getResultList();
+        session.close();
+        return list;
     }
 
     @Override

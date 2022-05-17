@@ -1,6 +1,7 @@
 package com.example.labdb.models;
 
 import lombok.*;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.List;
@@ -21,9 +22,6 @@ public class Kind {
 
     @Column(name = "name_group")
     private String nameGroup;
-
-    @OneToMany(mappedBy = "kindDish")
-    private List<Dish> dishList;
 
     @OneToMany(mappedBy = "kindDrink")
     private List<Drink> drinkList;
