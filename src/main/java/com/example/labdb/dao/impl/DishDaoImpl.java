@@ -24,6 +24,7 @@ public class DishDaoImpl implements DishDao {
         Session session = getSessionFactory().openSession();
         session.beginTransaction();
         session.save(dish);
+        session.saveOrUpdate(dish.getKindDish());
         session.getTransaction().commit();
         session.close();
         return dish;

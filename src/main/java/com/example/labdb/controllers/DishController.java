@@ -79,7 +79,7 @@ public class DishController {
        Kind kind = kindService.getFromId(Integer.parseInt(groupId));
         Dish dish = new Dish(countDish, nameDish, priceDish, manufacturer, kind);
         dishService.addNewDish(dish);
-        return "addDish";
+        return "redirect:/dish/list";
     }
 
     @GetMapping("/delete/{id}")

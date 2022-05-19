@@ -7,7 +7,7 @@
     <session-factory>
 
         <property name="hibernate.hbm2ddl.auto">update</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/db_spok</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/db_spok1</property>
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">6647</property>
         <property name="hibernate.connection.characterEncoding">utf8</property>
